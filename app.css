@@ -1,5 +1,17 @@
+@import url('https://db.onlinewebfonts.com/c/d02befc8fdd8e5315fb21fa7f38fd55a?family=Shree+Devanagari+714');
+
+@font-face {
+    font-family: 'Shree Devanagari 714';
+    src: url('https://db.onlinewebfonts.com/t/d02befc8fdd8e5315fb21fa7f38fd55a.eot');
+    src: url('https://db.onlinewebfonts.com/t/d02befc8fdd8e5315fb21fa7f38fd55a.eot?#iefix') format('embedded-opentype'),
+         url('https://db.onlinewebfonts.com/t/d02befc8fdd8e5315fb21fa7f38fd55a.woff2') format('woff2'),
+         url('https://db.onlinewebfonts.com/t/d02befc8fdd8e5315fb21fa7f38fd55a.woff') format('woff'),
+         url('https://db.onlinewebfonts.com/t/d02befc8fdd8e5315fb21fa7f38fd55a.ttf') format('truetype'),
+         url('https://db.onlinewebfonts.com/t/d02befc8fdd8e5315fb21fa7f38fd55a.svg#Shree Devanagari 714') format('svg');
+}
+
 body {
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: 'Shree Devanagari 714', sans-serif; /* Fallback font */
     line-height: 1.6;
     margin: 0;
     padding: 0;
@@ -7,21 +19,4 @@ body {
     background-color: #16161D;
 }
 
-header {
-    background: #16161D;
-    color: white;
-    padding: 10px 0;
-    text-align: center;
-}
-
-section {
-    padding: 20px;
-    margin: 0 20px;
-}
-
-footer {
-    background: #16161D;
-    color: white;
-    text-align: center;
-    padding: 10px 0;
-}
+/* Rest of your CSS */

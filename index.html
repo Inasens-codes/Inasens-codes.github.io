@@ -127,10 +127,11 @@
   .criteria-name { font-family: var(--sans); font-size: 0.82rem; font-weight: 400; color: var(--text); }
 
   .prizes-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-top: 2rem; }
-  .prize-card { background: var(--bg-card); border: 1px solid var(--border-light); border-radius: 8px; padding: 2.2rem 2rem; }
+  .prize-card { background: var(--bg-card); border: 1px solid var(--border-light); border-radius: 8px; padding: 2.2rem 2rem; display: flex; flex-direction: column; }
   .prize-card.featured { border-color: var(--accent-soft); background: var(--accent-bg); }
-  .prize-tier { font-family: var(--sans); font-size: 0.6rem; font-weight: 500; letter-spacing: 0.2em; text-transform: uppercase; color: var(--accent); margin-bottom: 1.2rem; }
-  .prize-list { list-style: none; display: flex; flex-direction: column; gap: 0.6rem; }
+  .prize-tier { font-family: var(--sans); font-size: 0.6rem; font-weight: 500; letter-spacing: 0.2em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.5rem; }
+  .prize-desc { font-family: var(--sans); font-size: 0.75rem; font-weight: 300; color: var(--text-muted); line-height: 1.55; margin-bottom: 1.2rem; }
+  .prize-list { list-style: none; display: flex; flex-direction: column; gap: 0.6rem; margin-top: auto; }
   .prize-list li { font-family: var(--sans); font-size: 0.82rem; font-weight: 300; color: var(--text-light); line-height: 1.45; padding-left: 1.2rem; position: relative; }
   .prize-list li::before { content: ''; position: absolute; left: 0; top: 0.55em; width: 5px; height: 1px; background: var(--accent); }
 
@@ -157,15 +158,17 @@
   .partners-row { display: flex; justify-content: center; align-items: center; gap: 2.5rem; flex-wrap: wrap; margin-top: 1.8rem; }
   .partner-name { font-family: var(--sans); font-size: 0.72rem; font-weight: 400; letter-spacing: 0.05em; color: var(--text-muted); padding: 0.6rem 0; transition: color 0.2s; }
   .partner-name:hover { color: var(--text); }
-  .partner-sep { color: var(--border); font-size: 0.6rem; }
-  .partners-note { font-family: var(--sans); font-size: 0.68rem; color: var(--text-muted); margin-top: 1.8rem; font-weight: 300; font-style: italic; }
 
   footer {
     border-top: 1px solid var(--border-light); padding: 3rem 2rem;
     max-width: 1200px; margin: 0 auto;
     display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1.5rem;
   }
+  .footer-left { display: flex; flex-direction: column; gap: 0.4rem; }
   .footer-brand { font-family: var(--serif); font-size: 0.95rem; font-weight: 600; color: var(--black); }
+  .footer-email { font-family: var(--sans); font-size: 0.68rem; color: var(--text-muted); letter-spacing: 0.02em; }
+  .footer-email a { color: var(--text-muted); text-decoration: none; transition: color 0.2s; }
+  .footer-email a:hover { color: var(--accent); }
   .footer-right { display: flex; gap: 2rem; }
   .footer-link { font-family: var(--sans); font-size: 0.68rem; color: var(--text-muted); text-decoration: none; letter-spacing: 0.08em; text-transform: uppercase; transition: color 0.2s; }
   .footer-link:hover { color: var(--accent); }
@@ -180,12 +183,15 @@
     .themes-grid .theme-card:last-child { grid-column: span 2; }
     .steps-grid { grid-template-columns: repeat(2,1fr); }
     .prizes-grid { grid-template-columns: 1fr; }
+    .specs-grid { grid-template-columns: repeat(2,1fr); }
     .nav-links { gap: 1.2rem; }
   }
   @media (max-width:600px) {
     nav { padding: 0 1rem; }
     .nav-links .nav-link { display: none; }
     .hero { padding: 5.5rem 1.5rem 3rem; }
+    .hero-title { font-size: clamp(2rem, 8vw, 2.5rem); }
+    .hero-sub { font-size: 0.9rem; }
     .facts-strip { grid-template-columns: repeat(2,1fr); }
     .themes-grid { grid-template-columns: 1fr; }
     .themes-grid .theme-card:last-child { grid-column: auto; }
@@ -196,7 +202,17 @@
     .tl-date { min-width: auto; }
     .archive-section { padding: 5rem 1.5rem; }
     .cta-section { padding: 4rem 1.5rem; }
+    .cta-title { font-size: clamp(1.5rem, 7vw, 2rem); }
     footer { flex-direction: column; align-items: flex-start; }
+    .footer-right { flex-wrap: wrap; gap: 1.2rem; }
+    .btn { padding: 0.8rem 1.5rem; font-size: 0.68rem; }
+    .hero-actions { flex-direction: column; align-items: flex-start; }
+    .hero-actions .btn { width: 100%; text-align: center; }
+    .cta-buttons { flex-direction: column; align-items: center; }
+    .cta-buttons .btn { width: 100%; text-align: center; max-width: 300px; }
+    .prize-card { padding: 1.8rem 1.5rem; }
+    .step-card { padding: 1.5rem 1.2rem; }
+    .themes-intro h2 { font-size: 1.4rem; }
   }
 </style>
 </head>
@@ -228,9 +244,9 @@
   </div>
   <div class="facts-strip">
     <div class="fact">
-      <p class="fact-label">Films sought</p>
-      <p class="fact-value">10</p>
-      <p class="fact-note">2 per theme</p>
+      <p class="fact-label">Winners</p>
+      <p class="fact-value">10 films</p>
+      <p class="fact-note">2 perspectives per theme</p>
     </div>
     <div class="fact">
       <p class="fact-label">Length</p>
@@ -266,7 +282,7 @@
   <p class="section-label">Themes</p>
   <div class="themes-intro">
     <h2>Each theme explores a dimension of human life being reshaped by emerging technologies.</h2>
-    <p>For every theme, we seek two films: one examining the risks, one the opportunities. Briefs are co-created with leading thinkers in each field. </p>
+    <p>For every theme, we seek two films: one examining the risks, one the opportunities. Briefs are co-created with leading thinkers in each field.</p>
   </div>
   <div class="themes-grid">
     <div class="theme-card">
@@ -311,7 +327,7 @@
     <div class="step-card">
       <p class="step-num">1</p>
       <p class="step-title">A theme opens</p>
-      <p class="step-desc">Every two months, a new theme launches with a brief co-created by thought leaders. Submissions stay open until the final selection.</p>
+      <p class="step-desc">A new theme launches every two months. Submissions for all themes remain open until February 2027 for the final selection.</p>
     </div>
     <div class="step-card">
       <p class="step-num">2</p>
@@ -382,11 +398,11 @@
       </div>
       <div class="criteria-row">
         <span class="criteria-icon"></span>
-        <span class="criteria-name">Film quality and execution</span>
+        <span class="criteria-name">Emotional impact and accessibility</span>
       </div>
       <div class="criteria-row">
         <span class="criteria-icon"></span>
-        <span class="criteria-name">Emotional impact and accessibility</span>
+        <span class="criteria-name">Film quality and execution</span>
       </div>
     </div>
   </div>
@@ -398,22 +414,24 @@
 <section class="reveal">
   <p class="section-label">Prizes</p>
   <div class="prizes-grid">
-    <div class="prize-card">
-      <p class="prize-tier">Per theme · Top picks every 2 Months
-      <ul class="prize-list">
-        <li>Cash prize (if funded)</li>
-        <li>AI tool subscription bundles (if sponsored)</li>
-        <li>Featured across The Human Record channels</li>
-      </ul>
-    </div>
     <div class="prize-card featured">
       <p class="prize-tier">Grand Final · March 2027</p>
+      <p class="prize-desc">Ten winning films are selected from all submissions and archived in Svalbard for 1,000 years.</p>
       <ul class="prize-list">
         <li>Grand cash prize per selected film</li>
         <li>Inclusion in the permanent collection</li>
         <li>Film archived in Svalbard for 1,000+ years</li>
         <li>Grand screening event</li>
         <li>Mentorship from established filmmakers</li>
+      </ul>
+    </div>
+    <div class="prize-card">
+      <p class="prize-tier">Spotlight · Every 2 Months</p>
+      <p class="prize-desc">Submit during a theme's featured window to also be eligible for bimonthly spotlight prizes.</p>
+      <ul class="prize-list">
+        <li>Cash prize (if funded)</li>
+        <li>AI tool subscription bundles (if sponsored)</li>
+        <li>Featured across The Human Record channels</li>
       </ul>
     </div>
   </div>
@@ -443,28 +461,28 @@
       <span class="tl-date">Jun – Jul</span>
       <div>
         <p class="tl-title">Theme 02: Intimacy</p>
-        <p class="tl-desc">Submissions open. Privacy top picks announced.</p>
+        <p class="tl-desc">Submissions open. Privacy spotlight films announced.</p>
       </div>
     </div>
     <div class="tl-item">
       <span class="tl-date">Aug – Sep</span>
       <div>
         <p class="tl-title">Theme 03: Liberty</p>
-        <p class="tl-desc">Submissions open. Intimacy top picks announced.</p>
+        <p class="tl-desc">Submissions open. Intimacy spotlight films announced.</p>
       </div>
     </div>
     <div class="tl-item">
       <span class="tl-date">Oct – Nov</span>
       <div>
         <p class="tl-title">Theme 04: Reality</p>
-        <p class="tl-desc">Submissions open. Liberty top picks announced.</p>
+        <p class="tl-desc">Submissions open. Liberty spotlight films announced.</p>
       </div>
     </div>
     <div class="tl-item">
       <span class="tl-date">Dec – Jan</span>
       <div>
         <p class="tl-title">Theme 05: Sustainability</p>
-        <p class="tl-desc">Final submissions open. Reality top picks announced.</p>
+        <p class="tl-desc">Final submissions open. Reality spotlight films announced.</p>
       </div>
     </div>
     <div class="tl-item">
@@ -509,18 +527,19 @@
   <p class="section-label">Partners</p>
   <div class="partners-row">
     <span class="partner-name">Get in touch</span>
-
   </div>
-  <p class="partners-note">No partner influences themes, briefs, judging, or selection.</p>
 </section>
 
 <!-- ═══ FOOTER ═══ -->
 <footer>
-  <p class="footer-brand">The Human Record</p>
+  <div class="footer-left">
+    <p class="footer-brand">The Human Record</p>
+    <p class="footer-email">contact: <a href="mailto:hello@thehumanrecord.now">hello@thehumanrecord.now</a></p>
+  </div>
   <div class="footer-right">
     <a href="#" class="footer-link">About</a>
-    <a href="#" class="footer-link">Contact</a>
-    <a href="#" class="footer-link">Press</a>
+    <a href="mailto:hello@thehumanrecord.now" class="footer-link">Contact</a>
+    <a href="mailto:press@thehumanrecord.now" class="footer-link">Press</a>
   </div>
 </footer>
 

@@ -106,7 +106,7 @@
   .theme-name { font-family: var(--serif); font-size: 1.3rem; font-weight: 600; color: var(--black); margin-bottom: 0.5rem; }
   .theme-sub { font-family: var(--sans); font-size: 0.7rem; font-weight: 300; color: var(--text-light); line-height: 1.5; margin-bottom: 1rem; }
   .theme-tag { font-family: var(--sans); font-size: 0.55rem; font-weight: 500; letter-spacing: 0.15em; text-transform: uppercase; padding: 0.3rem 0.7rem; border-radius: 3px; display: inline-block; }
-  .tag-open { background: var(--teal-bg); color: var(--teal); }
+  .tag-first { background: var(--teal-bg); color: var(--teal); }
   .tag-upcoming { background: var(--bg-alt); color: var(--text-muted); }
 
   .steps-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 2rem; margin-top: 2rem; }
@@ -138,7 +138,7 @@
 
   .timeline-list { margin-top: 2rem; }
   .tl-item { display: flex; gap: 2rem; padding: 1.3rem 0; border-bottom: 1px solid var(--border-light); align-items: baseline; }
-  .tl-date { font-family: var(--sans); font-size: 0.68rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); min-width: 110px; flex-shrink: 0; }
+  .tl-phase { font-family: var(--sans); font-size: 0.68rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); min-width: 110px; flex-shrink: 0; }
   .tl-title { font-family: var(--serif); font-size: 1.05rem; font-weight: 500; color: var(--black); margin-bottom: 0.15rem; }
   .tl-desc { font-family: var(--sans); font-size: 0.75rem; font-weight: 300; color: var(--text-muted); }
 
@@ -200,7 +200,7 @@
     .specs-grid { grid-template-columns: 1fr; }
     section { padding: 3.5rem 1.5rem; }
     .tl-item { flex-direction: column; gap: 0.3rem; }
-    .tl-date { min-width: auto; }
+    .tl-phase { min-width: auto; }
     .archive-section { padding: 5rem 1.5rem; }
     .cta-section { padding: 4rem 1.5rem; }
     .cta-title { font-size: clamp(1.5rem, 7vw, 2rem); }
@@ -235,7 +235,7 @@
 <header class="hero">
   <div class="hero-badge">
     <span class="hero-badge-dot"></span>
-    <span class="hero-badge-text">Open call · April 2026 — February 2027</span>
+    <span class="hero-badge-text">Open call · coming soon </span>
   </div>
   <h1 class="hero-title">A short film competition exploring what emerging technologies mean for humanity.</h1>
   <p class="hero-sub">Five themes. Ten films. Two perspectives on each — one on the risks, one on the opportunities. The winning films will be archived in Svalbard, Norway for 1,000 years.</p>
@@ -283,38 +283,38 @@
   <p class="section-label">Themes</p>
   <div class="themes-intro">
     <h2>Each theme explores a dimension of human life being reshaped by emerging technologies.</h2>
-    <p>For every theme, we seek two films: one examining the risks, one the opportunities. Briefs are co-created with leading thinkers in each field.</p>
+    <p>For every theme, we seek two films: one examining the risks, one the opportunities. Themes launch sequentially throughout the programme. Briefs are co-created with leading thinkers in each field.</p>
   </div>
   <div class="themes-grid">
     <div class="theme-card">
       <p class="theme-num">01</p>
-      <h3 class="theme-name">Privacy</h3>
-      <p class="theme-sub">Surveillance, data, the right to be forgotten</p>
-      <span class="theme-tag tag-open">Apr – May 2026</span>
+      <h3 class="theme-name">Reality</h3>
+      <p class="theme-sub">Truth, perception, the nature of what is real</p>
+      <span class="theme-tag tag-first">Launching first</span>
     </div>
     <div class="theme-card">
       <p class="theme-num">02</p>
-      <h3 class="theme-name">Intimacy</h3>
-      <p class="theme-sub">Connection, companionship, the boundaries of the self</p>
-      <span class="theme-tag tag-upcoming">Jun – Jul 2026</span>
+      <h3 class="theme-name">Privacy</h3>
+      <p class="theme-sub">Surveillance, data, the right to be forgotten</p>
+      <span class="theme-tag tag-upcoming">Coming next</span>
     </div>
     <div class="theme-card">
       <p class="theme-num">03</p>
-      <h3 class="theme-name">Liberty</h3>
-      <p class="theme-sub">Autonomy, agency, the freedom to choose</p>
-      <span class="theme-tag tag-upcoming">Aug – Sep 2026</span>
+      <h3 class="theme-name">Intimacy</h3>
+      <p class="theme-sub">Connection, companionship, the boundaries of the self</p>
+      <span class="theme-tag tag-upcoming">Coming next</span>
     </div>
     <div class="theme-card">
       <p class="theme-num">04</p>
-      <h3 class="theme-name">Reality</h3>
-      <p class="theme-sub">Truth, perception, the nature of what is real</p>
-      <span class="theme-tag tag-upcoming">Oct – Nov 2026</span>
+      <h3 class="theme-name">Liberty</h3>
+      <p class="theme-sub">Autonomy, agency, the freedom to choose</p>
+      <span class="theme-tag tag-upcoming">Coming next</span>
     </div>
     <div class="theme-card">
       <p class="theme-num">05</p>
       <h3 class="theme-name">Sustainability</h3>
       <p class="theme-sub">Resources, ecology, the cost of progress</p>
-      <span class="theme-tag tag-upcoming">Dec 2026 – Jan 2027</span>
+      <span class="theme-tag tag-upcoming">Coming next</span>
     </div>
   </div>
 </section>
@@ -328,7 +328,7 @@
     <div class="step-card">
       <p class="step-num">1</p>
       <p class="step-title">A theme opens</p>
-      <p class="step-desc">A new theme launches every two months. Submissions for all themes remain open until February 2027 for the final selection.</p>
+      <p class="step-desc">A new theme launches every two months. Submissions for all themes remain open until the final selection.</p>
     </div>
     <div class="step-card">
       <p class="step-num">2</p>
@@ -416,7 +416,7 @@
   <p class="section-label">Prizes</p>
   <div class="prizes-grid">
     <div class="prize-card featured">
-      <p class="prize-tier">Grand Final · March 2027</p>
+      <p class="prize-tier">Grand Final</p>
       <p class="prize-desc">Ten winning films are selected from all submissions and archived in Svalbard for 1,000 years.</p>
       <ul class="prize-list">
         <li>Grand cash prize per selected film</li>
@@ -427,8 +427,8 @@
       </ul>
     </div>
     <div class="prize-card">
-      <p class="prize-tier">Spotlight · Every 2 Months</p>
-      <p class="prize-desc">Submit during a theme's featured window to also be eligible for bimonthly spotlight prizes.</p>
+      <p class="prize-tier">Spotlight · Per Theme</p>
+      <p class="prize-desc">Submit during a theme's featured window to also be eligible for spotlight prizes.</p>
       <ul class="prize-list">
         <li>Cash prize (if funded)</li>
         <li>AI tool subscription bundles (if sponsored)</li>
@@ -445,56 +445,28 @@
   <p class="section-label">Timeline</p>
   <div class="timeline-list">
     <div class="tl-item">
-      <span class="tl-date">Mar 2026</span>
+      <span class="tl-phase">Phase 01</span>
       <div>
-        <p class="tl-title">Public launch</p>
-        <p class="tl-desc">The Human Record announced. First theme brief published.</p>
+        <p class="tl-title">Launch</p>
+        <p class="tl-desc">The Human Record is announced. First theme brief published. Submissions open.</p>
       </div>
     </div>
     <div class="tl-item">
-      <span class="tl-date">Apr – May</span>
+      <span class="tl-phase">Phase 02</span>
       <div>
-        <p class="tl-title">Theme 01: Privacy</p>
-        <p class="tl-desc">Submissions open.</p>
+        <p class="tl-title">Theme rollout</p>
+        <p class="tl-desc">Five themes launch sequentially, roughly every two months. Spotlight films announced as each theme window closes.</p>
       </div>
     </div>
     <div class="tl-item">
-      <span class="tl-date">Jun – Jul</span>
-      <div>
-        <p class="tl-title">Theme 02: Intimacy</p>
-        <p class="tl-desc">Submissions open. Privacy spotlight films announced.</p>
-      </div>
-    </div>
-    <div class="tl-item">
-      <span class="tl-date">Aug – Sep</span>
-      <div>
-        <p class="tl-title">Theme 03: Liberty</p>
-        <p class="tl-desc">Submissions open. Intimacy spotlight films announced.</p>
-      </div>
-    </div>
-    <div class="tl-item">
-      <span class="tl-date">Oct – Nov</span>
-      <div>
-        <p class="tl-title">Theme 04: Reality</p>
-        <p class="tl-desc">Submissions open. Liberty spotlight films announced.</p>
-      </div>
-    </div>
-    <div class="tl-item">
-      <span class="tl-date">Dec – Jan</span>
-      <div>
-        <p class="tl-title">Theme 05: Sustainability</p>
-        <p class="tl-desc">Final submissions open. Reality spotlight films announced.</p>
-      </div>
-    </div>
-    <div class="tl-item">
-      <span class="tl-date">Feb 2027</span>
+      <span class="tl-phase">Phase 03</span>
       <div>
         <p class="tl-title">Final selection</p>
         <p class="tl-desc">Grand jury convenes. Ten films chosen for The Human Record.</p>
       </div>
     </div>
     <div class="tl-item">
-      <span class="tl-date">Mar 2027</span>
+      <span class="tl-phase">Phase 04</span>
       <div>
         <p class="tl-title">The Record is sealed</p>
         <p class="tl-desc">Grand screening. Arctic World Archive deposit. The collection enters the permanent record.</p>
@@ -516,7 +488,7 @@
 <!-- ═══ CTA ═══ -->
 <section class="cta-section reveal">
   <h2 class="cta-title">The record begins<br>with <em>you</em>.</h2>
-  <p class="cta-sub">Theme 01: Privacy opens April 2026. Join the community to receive the brief the moment it launches.</p>
+  <p class="cta-sub">Theme 01: Reality launches first. Join the community to receive the brief the moment it opens.</p>
   <div class="cta-buttons">
     <a href="#" class="btn btn-accent">Join the Community</a>
     <a href="#" class="btn btn-outline">Read the Full Brief</a>

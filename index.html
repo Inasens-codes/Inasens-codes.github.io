@@ -109,6 +109,47 @@
   .tag-first { background: var(--teal-bg); color: var(--teal); }
   .tag-upcoming { background: var(--bg-alt); color: var(--text-muted); }
 
+  /* ── Tech marquee ── */
+  .tech-marquee-wrap {
+    overflow: hidden;
+    padding: 2.5rem 0;
+    position: relative;
+  }
+  .tech-marquee-wrap::before,
+  .tech-marquee-wrap::after {
+    content: '';
+    position: absolute; top: 0; bottom: 0; width: 120px; z-index: 2;
+    pointer-events: none;
+  }
+  .tech-marquee-wrap::before { left: 0; background: linear-gradient(90deg, var(--bg) 0%, transparent 100%); }
+  .tech-marquee-wrap::after { right: 0; background: linear-gradient(270deg, var(--bg) 0%, transparent 100%); }
+  .tech-marquee-track {
+    display: flex; width: max-content;
+    animation: marquee 140s linear infinite;
+  }
+  .tech-marquee-track:hover { animation-play-state: paused; }
+  .tech-item {
+    font-family: var(--sans);
+    font-size: 0.65rem;
+    font-weight: 400;
+    letter-spacing: 0.04em;
+    color: var(--text-muted);
+    white-space: nowrap;
+    padding: 0 1.5rem;
+    position: relative;
+    transition: color 0.3s;
+  }
+  .tech-item:hover { color: var(--text-light); }
+  .tech-item::after {
+    content: '·';
+    position: absolute; right: 0; top: 50%; transform: translateY(-50%);
+    color: var(--border);
+  }
+  @keyframes marquee {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+
   .steps-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 2rem; margin-top: 2rem; }
   .step-card { background: var(--bg-card); border: 1px solid var(--border-light); border-radius: 8px; padding: 2rem 1.5rem; }
   .step-num { font-family: var(--serif); font-size: 2rem; font-weight: 400; color: var(--accent); margin-bottom: 0.8rem; line-height: 1; }
@@ -142,6 +183,11 @@
   .tl-title { font-family: var(--serif); font-size: 1.05rem; font-weight: 500; color: var(--black); margin-bottom: 0.15rem; }
   .tl-desc { font-family: var(--sans); font-size: 0.75rem; font-weight: 300; color: var(--text-muted); }
 
+  .partners-section { text-align: center; padding: 5rem 2rem; max-width: 1200px; margin: 0 auto; }
+  .partners-row { display: flex; justify-content: center; align-items: center; gap: 2.5rem; flex-wrap: wrap; margin-top: 1.8rem; }
+  .partner-name { font-family: var(--sans); font-size: 0.72rem; font-weight: 400; letter-spacing: 0.05em; color: var(--text-muted); padding: 0.6rem 0; transition: color 0.2s; }
+  .partner-name:hover { color: var(--text); }
+
   .archive-section { background: var(--black); color: var(--bg); margin: 0; max-width: 100%; padding: 7rem 2rem; }
   .archive-inner { max-width: 750px; margin: 0 auto; text-align: center; }
   .archive-label { font-family: var(--sans); font-size: 0.62rem; font-weight: 500; letter-spacing: 0.3em; text-transform: uppercase; color: #c4841d; margin-bottom: 2.5rem; }
@@ -154,11 +200,6 @@
   .cta-title em { font-style: italic; color: var(--accent); }
   .cta-sub { font-family: var(--sans); font-size: 0.9rem; font-weight: 300; color: var(--text-light); max-width: 400px; margin: 0 auto 2.5rem; line-height: 1.7; }
   .cta-buttons { display: flex; gap: 0.8rem; justify-content: center; flex-wrap: wrap; }
-
-  .partners-section { text-align: center; padding: 5rem 2rem; max-width: 1200px; margin: 0 auto; border-top: 1px solid var(--border-light); }
-  .partners-row { display: flex; justify-content: center; align-items: center; gap: 2.5rem; flex-wrap: wrap; margin-top: 1.8rem; }
-  .partner-name { font-family: var(--sans); font-size: 0.72rem; font-weight: 400; letter-spacing: 0.05em; color: var(--text-muted); padding: 0.6rem 0; transition: color 0.2s; }
-  .partner-name:hover { color: var(--text); }
 
   footer {
     border-top: 1px solid var(--border-light); padding: 3rem 2rem;
@@ -214,6 +255,10 @@
     .prize-card { padding: 1.8rem 1.5rem; }
     .step-card { padding: 1.5rem 1.2rem; }
     .themes-intro h2 { font-size: 1.4rem; }
+    .tech-marquee-wrap::before,
+    .tech-marquee-wrap::after { width: 40px; }
+    .tech-item { padding: 0 1rem; font-size: 0.6rem; }
+    .partners-section { padding: 3.5rem 1.5rem; }
   }
 </style>
 </head>
@@ -235,7 +280,7 @@
 <header class="hero">
   <div class="hero-badge">
     <span class="hero-badge-dot"></span>
-    <span class="hero-badge-text">Open call · coming soon </span>
+    <span class="hero-badge-text">Open call · Coming soon</span>
   </div>
   <h1 class="hero-title">A short film competition exploring what emerging technologies mean for humanity.</h1>
   <p class="hero-sub">Five themes. Ten films. Two perspectives on each — one on the risks, one on the opportunities. The winning films will be archived in Svalbard, Norway for 1,000 years.</p>
@@ -252,7 +297,6 @@
     <div class="fact">
       <p class="fact-label">Length</p>
       <p class="fact-value">2–15 min</p>
-      <p class="fact-note"></p>
     </div>
     <div class="fact">
       <p class="fact-label">Entry</p>
@@ -275,6 +319,11 @@
     </div>
   </div>
 </header>
+
+<!-- ═══ TECH MARQUEE ═══ -->
+<div class="tech-marquee-wrap" aria-hidden="true">
+  <div class="tech-marquee-track" id="marquee"></div>
+</div>
 
 <hr class="section-divider">
 
@@ -485,6 +534,14 @@
   </div>
 </section>
 
+<!-- ═══ PARTNERS ═══ -->
+<section class="partners-section reveal">
+  <p class="section-label">Partners</p>
+  <div class="partners-row">
+    <span class="partner-name">Get in touch</span>
+  </div>
+</section>
+
 <!-- ═══ CTA ═══ -->
 <section class="cta-section reveal">
   <h2 class="cta-title">The record begins<br>with <em>you</em>.</h2>
@@ -492,14 +549,6 @@
   <div class="cta-buttons">
     <a href="#" class="btn btn-accent">Join the Community</a>
     <a href="#" class="btn btn-outline">Read the Full Brief</a>
-  </div>
-</section>
-
-<!-- ═══ PARTNERS ═══ -->
-<section class="partners-section reveal">
-  <p class="section-label">Partners</p>
-  <div class="partners-row">
-    <span class="partner-name">Get in touch</span>
   </div>
 </section>
 
@@ -517,10 +566,45 @@
 </footer>
 
 <script>
+// Reveal on scroll
 const o = new IntersectionObserver(e => {
   e.forEach(i => { if (i.isIntersecting) i.target.classList.add('visible'); });
 }, { threshold: 0.1 });
 document.querySelectorAll('.reveal').forEach(el => o.observe(el));
+
+// Tech marquee
+const techs = [
+  "Artificial General Intelligence","Agentic AI","Large Action Models","Personal Large Action Models",
+  "Chain-of-Thought Models","Small Language Models","Multimodal AI","Multi-Agent AI Collaboration",
+  "AI-to-AI Communication","Computer-Using Agents","Neuro-symbolic AI","Embodied AI Agents",
+  "LLMs as Operating Systems","Self-Improving AI Systems","Explainable AI","AI Optimization",
+  "Generative User Interfaces","Emotion Detection AI","Realtime Deepfake Generation",
+  "AI Watermarking","Data Poisoning","AI-Powered Persuasion at Scale","Politically Biased AI",
+  "Nefarious AI Misuse","Medical Deepfakes","Posthumous AI","AI Alignment Drift",
+  "AI-Powered Citizen Surveillance","Worker Surveillance","School Surveillance",
+  "Behavioral Biometrics","Computer Vision for Surveillance","AI Nationalism",
+  "The AI-Driven Chip War","Autonomous Weapons Systems","AI-Guided Strikes",
+  "AI-Powered Cyber Offense","AI Warfare Simulation","Living Intelligence",
+  "AI-Driven Protein Folding","AI-First Drug Development","Generative Antibody Design",
+  "Synthetic Biology","Virus Mutation Prediction","Organoid Intelligence",
+  "AI-Augmented Genetic Rewriting","Animal Communication Decoding",
+  "Small Modular Reactors","AI Nuclear Renaissance","AI-Powered Climate Modeling",
+  "AI Energy Optimization","Carbon Capture Technologies","Climate-Resistant Agriculture",
+  "Adaptive Robotics","Fast-Learning Robots","Human-Level AI Embodiment",
+  "Autonomous Drone Swarms","Quantum Computing","Quantum AI","Neuromorphic Computing",
+  "Optical Neural Networks","Edge AI","On-Device AI","Metamaterials",
+  "Acoustic Metamaterials","Self-Healing Materials","AI-Accelerated Materials Discovery",
+  "Spatial Computing","Mixed Reality via LLMs","Neural Rendering","Decentralized Systems",
+  "Cislunar Economy","In-Space Manufacturing","Lunar Resource Extraction",
+  "GenAI-Powered Search","AI Training Data Market","AI-Native Education",
+  "AI Brain Drain from Academia","AI's Two-Speed Economy","AI-Assisted Asset Pricing",
+  "AI Fraud Detection","Robo-Advisers","Liability Insurance for AI","AI-Powered Damage Assessment"
+];
+
+const track = document.getElementById('marquee');
+// Duplicate list for seamless loop
+const items = [...techs, ...techs];
+track.innerHTML = items.map(t => `<span class="tech-item">${t}</span>`).join('');
 </script>
 
 </body>
